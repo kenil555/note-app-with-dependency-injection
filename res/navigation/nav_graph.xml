@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notesFragment">
+
+    <fragment
+        android:id="@+id/signInFragment2"
+        android:name="com.example.notesapp.feature_auth.presentation.signin.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment2_to_notesFragment"
+            app:destination="@id/notesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/signInFragment2"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.notesapp.feature_notes.presentation.notes.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_signInFragment2"
+            app:destination="@id/signInFragment2"
+            app:enterAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_notesFragment_to_addEditNote"
+            app:destination="@id/addEditNoteFragment"
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addEditNoteFragment"
+        android:name="com.example.notesapp.feature_notes.presentation.savenotes.AddEditNoteFragment"
+        android:label="fragment_add_edit_note"
+        tools:layout="@layout/fragment_add_edit_note" >
+        <action
+            android:id="@+id/action_addEditNote_to_notesFragment"
+            app:destination="@id/notesFragment"
+            app:enterAnim="@anim/slide_out_left"
+            app:popUpTo="@id/addEditNoteFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+</navigation>
